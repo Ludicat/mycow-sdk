@@ -1,0 +1,21 @@
+version: '2.2'
+
+services:
+    mc_sdk-cli:
+        container_name: "mc_sdk-cli"
+        build:
+            context: ../php-cli-${PHP_VERSION}
+            args:
+                GITHUB_TOKEN: ${GITHUB_TOKEN}
+        restart: "no"
+        tty: true
+        volumes:
+            - "../../:/var/www/html:delegated"
+            - "~/.ssh:/home/docker/.ssh:ro"
+        networks:
+            - "internal"
+        environment:
+            TZ: 'Europe/Paris'
+            ENVIRONMENT: "prod"
+        labels:
+            - "traefik.enable=false"

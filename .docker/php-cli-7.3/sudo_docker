@@ -1,0 +1,3 @@
+docker ALL=(ALL) NOPASSWD: /usr/bin/setfacl
+docker ALL=(ALL) NOPASSWD: /bin/chmod
+docker ALL=(ALL) NOPASSWD: /bin/ps

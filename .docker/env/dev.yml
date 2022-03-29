@@ -1,0 +1,18 @@
+version: '2.2'
+
+services:
+    mc_sdk-cli:
+        extends:
+            file: "common-services.yml"
+            service: "mc_sdk-cli"
+        restart: "no"
+        networks:
+            - "internal"
+        environment:
+            ENVIRONMENT: "dev"
+            APP_ENV: "dev"
+            APP_DEBUG: "true"
+
+networks:
+    internal:
+        driver: bridge
